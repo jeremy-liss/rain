@@ -8,6 +8,16 @@ body {
   max-height: 400px;
 }
 
+#farmer {
+  max-width: 248px;
+  max-height: 330px;
+}
+
+#speech {
+  max-width: 280px;
+  max-height: 80px;
+}
+
 #rain {
   display: flex;
   align-items: center;

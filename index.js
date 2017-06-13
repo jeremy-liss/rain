@@ -12,6 +12,12 @@ const state = {
     '../images/1down4.jpg',
     '../images/1down5.jpg',
     '../images/1down6.jpg'
+  ],
+  speech: [
+    '../images/talk1.jpg',
+    '../images/talk2.jpg',
+    '../images/talk3.jpg',
+    '../images/talk4.jpg'
   ]
 }
 
@@ -54,12 +60,28 @@ const stopLoop = () => {
   }, 300)
 }
 
+let speechImg = state.speech[0]
+let speechCount = 1
+
+const speech = () => {
+  if (fallCount > 7) {
+    speechImg = state.speech[speechCount]
+    speechCount += 1
+  }
+  if (speechCount === 4) {
+    clearInterval(speechHandle)
+  }
+}
+
+const speechHandle = setInterval(function(){
+  speech()
+}, 1500)
+
 const App = () => {
   return (
     <div>
-      <div id="rain">
       {fallCount < 7 ?
-        <div>
+        <div id ="rain">
           <img id="drops" src={image1} />
           <img id="drops" src={image2} />
           <img id="drops" src={image3} />
@@ -77,9 +99,11 @@ const App = () => {
           <img id="drops" src={image3} />
         </div>
       :
-        <h1>hi</h1>
-      }
+      <div>
+        <div id="rain"><img id="speech" src={speechImg} /></div>
+        <div id="rain"><img id="farmer" src="../images/farmer.jpg" /></div>
       </div>
+      }
       <div id="rain">
         <a href="#" onClick={()=>stopLoop()}><h3>{text}</h3></a>
       </div>
