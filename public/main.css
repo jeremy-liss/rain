@@ -1,4 +1,15 @@
-img {
-  max-width: 162px;
-  max-height: 600px;
+body {
+  height: 100%;
+  margin: 10%
+}
+
+#drops {
+  max-width: 108px;
+  max-height: 400px;
+}
+
+#rain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
